@@ -1,0 +1,11 @@
+query {
+    locations {
+        id
+        results
+        name 
+        dimension
+        residents {
+            name
+        }
+    }
+}

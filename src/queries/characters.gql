@@ -1,0 +1,13 @@
+query {
+    characters {
+        results {
+            id
+            name
+            image
+            status
+            episode {
+                name
+            }
+        }
+    }
+}
