@@ -13,8 +13,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n    query Characters {\n        characters {\n            results {\n                id\n                name\n                status\n            }\n        }\n    }\n": types.CharactersDocument,
-    "\n  query Episodes {\n    episodes {\n      results {\n        id\n        name \n        air_date\n        characters {\n          name\n        }\n      }\n    }\n  }\n": types.EpisodesDocument,
+    "\n    query getCharacter($id:ID!) {\n        character(id:$id) {\n            id\n            name\n            image\n            gender\n            status\n            species\n            origin{\n                name\n            }\n        }\n    }\n": types.GetCharacterDocument,
+    "\n    query getCharacters($name: String!, $gender: String!, $species: String!, $status: String!) {\n        characters(\n    filter: {name: $name, gender: $gender, species: $species, status: $status}\n  ) {\n            results {\n                id\n                name\n                species\n                gender\n                status\n            }\n        }\n    }\n": types.GetCharactersDocument,
+    "\n  query getEpisodes($name:String!) {\n    episodes(filter:{ name:$name }) {\n      results {\n        id\n        name \n        air_date\n        characters {\n          name\n        }\n      }\n    }\n  }\n": types.GetEpisodesDocument,
+    "\n  query getLocations($dimension:String) {\n    locations (filter:{ dimension:$dimension }) {\n        results {\n        id\n        name \n        dimension\n        residents {\n            id\n            name\n            image\n        }\n      }\n    }\n  }\n": types.GetLocationsDocument,
 };
 
 /**
@@ -34,11 +36,19 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query Characters {\n        characters {\n            results {\n                id\n                name\n                status\n            }\n        }\n    }\n"): (typeof documents)["\n    query Characters {\n        characters {\n            results {\n                id\n                name\n                status\n            }\n        }\n    }\n"];
+export function graphql(source: "\n    query getCharacter($id:ID!) {\n        character(id:$id) {\n            id\n            name\n            image\n            gender\n            status\n            species\n            origin{\n                name\n            }\n        }\n    }\n"): (typeof documents)["\n    query getCharacter($id:ID!) {\n        character(id:$id) {\n            id\n            name\n            image\n            gender\n            status\n            species\n            origin{\n                name\n            }\n        }\n    }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query Episodes {\n    episodes {\n      results {\n        id\n        name \n        air_date\n        characters {\n          name\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query Episodes {\n    episodes {\n      results {\n        id\n        name \n        air_date\n        characters {\n          name\n        }\n      }\n    }\n  }\n"];
+export function graphql(source: "\n    query getCharacters($name: String!, $gender: String!, $species: String!, $status: String!) {\n        characters(\n    filter: {name: $name, gender: $gender, species: $species, status: $status}\n  ) {\n            results {\n                id\n                name\n                species\n                gender\n                status\n            }\n        }\n    }\n"): (typeof documents)["\n    query getCharacters($name: String!, $gender: String!, $species: String!, $status: String!) {\n        characters(\n    filter: {name: $name, gender: $gender, species: $species, status: $status}\n  ) {\n            results {\n                id\n                name\n                species\n                gender\n                status\n            }\n        }\n    }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query getEpisodes($name:String!) {\n    episodes(filter:{ name:$name }) {\n      results {\n        id\n        name \n        air_date\n        characters {\n          name\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query getEpisodes($name:String!) {\n    episodes(filter:{ name:$name }) {\n      results {\n        id\n        name \n        air_date\n        characters {\n          name\n        }\n      }\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query getLocations($dimension:String) {\n    locations (filter:{ dimension:$dimension }) {\n        results {\n        id\n        name \n        dimension\n        residents {\n            id\n            name\n            image\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query getLocations($dimension:String) {\n    locations (filter:{ dimension:$dimension }) {\n        results {\n        id\n        name \n        dimension\n        residents {\n            id\n            name\n            image\n        }\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

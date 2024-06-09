@@ -1,65 +1,29 @@
-import Header from "@/components/Header"
-import Image from "next/image"
-import { randomUUID } from "crypto"
-import { graphql } from "@/gql/gql";
-import {request} from 'graphql-request';
-import { CharactersQuery } from "@/gql/graphql";
-import CompCharacter from "@/components/CompCharacter";
+import CharacterSearch from "@/components/CharacterSearch";
+import CharactersList from "@/components/CharactersList";
+import Loading from "../loading";
+import { Suspense } from "react";
 
-const links = [
-    {   
-        id: randomUUID(),
-        title:"Characters",
-        link:'/characters'
-    },
-    {   
-        id:randomUUID(),
-        title:"Locations",
-        link:'/locations'
-    },
-    {
-        id:randomUUID(),
-        title:"Episodes",
-        link:'/'
-    }
-]
+export const revalidate = 0;
 
-const document = graphql(`
-    query Characters {
-        characters {
-            results {
-                id
-                name
-                status
-            }
-        }
-    }
-`);
-
-async function getCharacters(){
-    const { characters } = await request<CharactersQuery>('https://rickandmortyapi.com/graphql', document);
-    return characters?.results;
-}
-
-export default async function characters(){
-    const characters = await getCharacters();
-    return(
-        <>
-        <Header links={links} />
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="w-5/6 md:w-2/3 sm:w-full">
-          <Image className="mx-auto" src="/Rick_and_Morty.svg" width={700} height={700} alt="Rick_and_Morty_title" />
-          <h1 className="text-3xl text-center my-2">Characters</h1>
-        </div>
-            <section className="w-5/6 mx-auto grid grid-cols-3 gap-2">
-                {
-                    characters?.map((char) => (
-                        <CompCharacter id={char?.id} key={char?.id} name={char?.name} status={char?.status} />
-                    ))
-                }
-            </section>
-        </main>
-        </>
-        
-    )
+export default async function Page({searchParams}:{
+  searchParams?:{ [key: string]: string | string[] | undefined } //To intercepts requests 
+  // sent from client pages i.e 'CharacterQueries'
+}){
+  
+  const query = {
+    name: typeof searchParams?.name === 'string' ? searchParams?.name: "",
+    gender: typeof searchParams?.gender === 'string' ? searchParams?.gender: "",
+    species: typeof searchParams?.species === 'string' ? searchParams?.species: "",
+    status: typeof searchParams?.status === 'string' ? searchParams?.status: "",
+  }
+  return(
+      <>
+        <CharacterSearch>
+          <Suspense fallback={<Loading type="Characters" />}>
+          <CharactersList name={query.name} gender={query.gender} species={query.species} status={query.status} />
+          </Suspense>
+        </CharacterSearch>
+      </>
+      
+  )
 }
