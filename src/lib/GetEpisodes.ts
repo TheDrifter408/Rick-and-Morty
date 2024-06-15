@@ -1,6 +1,6 @@
 import { request, gql} from "graphql-request";
 import { getAllEpisodes } from "@/types";
-import { Episodes } from "@/gql/graphql";
+import { Episodes, Query } from "@/gql/graphql";
 
 const document = gql`
   query getEpisodes($name:String!) {
@@ -18,6 +18,6 @@ const document = gql`
 `;
 
 export async function AllEpisodes(queryParams:getAllEpisodes){
-    const { results } = await request<Episodes>('https://rickandmortyapi.com/graphql',document,queryParams);
-    return results;  
+    const { episodes } = await request<Query>('https://rickandmortyapi.com/graphql',document,queryParams);
+    return episodes?.results;  
   }

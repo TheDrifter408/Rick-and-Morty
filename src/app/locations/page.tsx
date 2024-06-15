@@ -12,11 +12,10 @@ export default function Page({searchParams}:{
     let query = {
         dimension: typeof searchParams?.dimension === 'string' ? searchParams?.dimension: "",
     }
-    console.log(query)
     return(
         <>
         <LocationSearch>
-            <Suspense fallback={<Loading loadingType="Locations" />}>
+            <Suspense fallback={<Loading type="Locations" />}>
                 <LocationsList dimension={query.dimension} />
             </Suspense> 
         </LocationSearch>

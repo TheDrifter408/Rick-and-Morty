@@ -1,4 +1,4 @@
-import { Locations, Maybe } from "@/gql/graphql";
+import { Query } from "@/gql/graphql";
 import { getAllLocations } from "@/types";
 import {request,gql} from "graphql-request";
 
@@ -20,6 +20,6 @@ const document = gql`
 `
 
 export async function AllLocations(queryParams:getAllLocations){
-    const  locations = await request<Maybe<Locations>>('https://rickandmortyapi.com/graphql',document,queryParams);
-    return locations;
+    const  { locations } = await request<Query>('https://rickandmortyapi.com/graphql',document,queryParams);
+    return locations?.results;
 }

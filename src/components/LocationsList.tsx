@@ -1,20 +1,19 @@
 import { Location,Maybe } from "@/gql/graphql";
 import LocationComponent from "./Location";
-import { getAllLocations } from "@/lib/GetLocations";
-import { AllLocations } from "@/types";
+import { AllLocations } from "@/lib/GetLocations";
+import { getAllLocations } from "@/types";
 
-export default async function LocationsList({ dimension }:AllLocations){
+export default async function LocationsList({ dimension }:getAllLocations){
 
-    let items:Maybe<Array<Maybe<Location>>> | undefined;
+    let results:Maybe<Array<Maybe<Location>>> | undefined;
     let query = {
         dimension:dimension
     }
-    items = await getAllLocations(query);
-        
+    results = await AllLocations(query);
     return(
         <>
             {
-                items && items.map((location) => (
+                results?.map((location:Maybe<Location>) => (
                     <LocationComponent key={location?.id} name={location?.name} dimension={location?.dimension} residents={location?.residents}/>
                 ))
             }
