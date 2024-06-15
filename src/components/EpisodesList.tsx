@@ -1,16 +1,16 @@
 import { Episode, Maybe } from "@/gql/graphql";
 import EpisodeComponent from "./Episode";
-import { getAllEpisodes } from "@/lib/GetEpisodes";
-import { AllEpisodes } from "@/types";
+import { AllEpisodes } from "@/lib/GetEpisodes";
+import { getAllEpisodes } from "@/types";
 
-export default async function EpisodesList({ name }:AllEpisodes){
+export default async function EpisodesList({ name }:getAllEpisodes){
 
   const query = {
     name:name
   };
 
   let results:Maybe<Array<Maybe<Episode>>> | undefined; 
-  results = await getAllEpisodes(query); 
+  results = await AllEpisodes(query); 
   
   return(
       <>

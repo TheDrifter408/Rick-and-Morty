@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({weight:["100" , "200" , "300" , "400" , "500" , "600" , "700" , "800" , "900"], subsets: ["latin","latin-ext"]});
 
@@ -18,12 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} relative`}>
       <Header />
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
                 <CTA />
                 {children}
             </main>
+      <Footer />
       </body>
     </html>
   );

@@ -19,7 +19,7 @@ function Box({ children,styles }: {
     },[])
 
     return(
-        <div ref={box} className={styles}>
+        <div ref={box} className={styles + " relative "}>
             {children}
         </div>
     )

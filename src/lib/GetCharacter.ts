@@ -1,10 +1,9 @@
-import { graphql } from "@/gql";
-import { GetCharacterQuery } from "@/gql/graphql";
-import { Character } from "@/types";
-import request from "graphql-request";
+import {  Maybe,Character } from "@/gql/graphql";
+import { getCharacter } from "@/types";
+import { request, gql} from "graphql-request";
 
 
-const graphdoc = graphql(`
+const graphdoc = gql`
     query getCharacter($id:ID!) {
         character(id:$id) {
             id
@@ -18,9 +17,9 @@ const graphdoc = graphql(`
             }
         }
     }
-`);
+`;
 
-export async function GetCharacter(params:Character){
-    const { character } = await request<GetCharacterQuery>('https://rickandmortyapi.com/graphql',graphdoc,params)
+export async function GetCharacter(params:getCharacter){
+    const character = await request<Maybe<Character>>('https://rickandmortyapi.com/graphql',graphdoc,params)
     return character;
 }

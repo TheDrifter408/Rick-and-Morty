@@ -1,11 +1,11 @@
 import { graphql } from "@/gql/gql";
-import { GetCharactersQuery } from "@/gql/graphql";
+import { Query } from "@/gql/graphql";
 import { AllCharacters } from "@/types";
-import { request } from 'graphql-request';
+import { request,gql } from 'graphql-request';
 
-const graphdoc = graphql(`
-    query getCharacters($name: String!, $gender: String!, $species: String!, $status: String!) {
-        characters(
+const queryDoc = gql`
+    query getCharacters($name: String!, $gender: String!, $species: String!, $status: String!,$page:Int!) {
+        characters(page:$page,
     filter: {name: $name, gender: $gender, species: $species, status: $status}
   ) {
             results {
@@ -17,10 +17,10 @@ const graphdoc = graphql(`
             }
         }
     }
-`);
+`;
 
 
 export async function getAllCharacters(queryParams:AllCharacters){
-    const { characters } = await request<GetCharactersQuery>('https://rickandmortyapi.com/graphql',graphdoc,queryParams);
+    const { characters } = await request<Query>('https://rickandmortyapi.com/graphql',queryDoc,queryParams);
     return characters?.results;    
 }

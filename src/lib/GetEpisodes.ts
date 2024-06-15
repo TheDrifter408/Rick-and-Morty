@@ -1,9 +1,8 @@
-import { graphql } from "@/gql";
-import request from "graphql-request";
-import { Episode, GetEpisodesQuery, Maybe } from "@/gql/graphql";
-import { AllEpisodes } from "@/types";
+import { request, gql} from "graphql-request";
+import { getAllEpisodes } from "@/types";
+import { Episodes } from "@/gql/graphql";
 
-const document = graphql(`
+const document = gql`
   query getEpisodes($name:String!) {
     episodes(filter:{ name:$name }) {
       results {
@@ -16,9 +15,9 @@ const document = graphql(`
       }
     }
   }
-`);
+`;
 
-export async function getAllEpisodes(queryParams:AllEpisodes){
-    const { episodes } = await request<GetEpisodesQuery>('https://rickandmortyapi.com/graphql',document,queryParams);
-    return episodes?.results;  
+export async function AllEpisodes(queryParams:getAllEpisodes){
+    const { results } = await request<Episodes>('https://rickandmortyapi.com/graphql',document,queryParams);
+    return results;  
   }

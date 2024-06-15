@@ -10,7 +10,8 @@ export default async function CharactersList({name,species,gender,status}:AllCha
         name: name,
         species: species,
         gender: gender,
-        status: status
+        status: status,
+        page:1
         }
         results = await getAllCharacters(query);
     return(

@@ -5,17 +5,18 @@ export type AllCharacters = {
     gender:string;
     species:string;
     status:string;
+    page:number
 }
 
-export type Character = {
+export type getCharacter = {
     id:string
 }
 
-export type AllEpisodes = {
+export type getAllEpisodes = {
     name:string;
 }
 
-export type AllLocations = {
+export type getAllLocations = {
     dimension:string
 }
 
