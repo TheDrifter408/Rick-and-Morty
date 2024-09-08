@@ -1,4 +1,4 @@
-import { Location } from "@/gql/graphql";
+import { Location } from "@/graphql/graphql";
 import Image from "next/image";
 
 export default function LocationComponent({name,dimension,residents}:Location){

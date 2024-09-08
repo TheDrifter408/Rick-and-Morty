@@ -1,4 +1,4 @@
-import { Query } from "@/gql/graphql";
+import { Query } from "@/graphql/graphql";
 import { AllCharacters } from "@/types";
 import { request,gql } from 'graphql-request';
 

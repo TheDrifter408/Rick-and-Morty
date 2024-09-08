@@ -1,6 +1,6 @@
 import { request, gql} from "graphql-request";
 import { getAllEpisodes } from "@/types";
-import { Episodes, Query } from "@/gql/graphql";
+import { Query } from "@/graphql/graphql";
 
 const document = gql`
   query getEpisodes($name:String!) {
