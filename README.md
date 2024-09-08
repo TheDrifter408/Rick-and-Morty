@@ -5,10 +5,16 @@
 4. Codegen (To generate the types for graphql request)
 
 ## About
-This project uses the [rickandmortyapi.com](https://rickandmortyapi.com/documentation/#graphql) graphql API and tailwind to design a website with realtime filtering.
+### Rick And Morty API:
+    This project uses the [rickandmortyapi.com](https://rickandmortyapi.com/documentation/#graphql) graphQL and tailwind to design a website with realtime filtering.
 
-## Deploy on Vercel
+### MotionOne:
+    The MotionOne library [motion.dev](https://https://motion.dev/) was used for the sliding in animations. This was preferred over framer motion due to its smaller bundle size.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### GraphQL Codegen:
+    This package was used to generate query types for the data being request and `graphql-request` was used as a plugin to write the queries, `graphql` and `request` them, these two are functions available from graphql-request package. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Deployed on Vercel
+Website: https://rick-and-morty-rosy-eight.vercel.app
+
