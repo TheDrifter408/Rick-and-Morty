@@ -11,7 +11,7 @@ export default function LocationComponent({name,dimension,residents}:Location){
                     {dimension}
                 </h3>
                 <h2 className="font-semibold">Residents:</h2>
-                <div className="grid gap-4 py-1 sm:grid-cols-2  md:grid-cols-3 xl:grid-cols-5 ">
+                <div className="grid gap-4 py-1 sm:grid-cols-2  md:grid-cols-3 xl:grid-cols-5">
                     {
                        residents && residents.length > 0 ?
                         residents.map((resident) => (

@@ -11,11 +11,11 @@ export default function Home() {
       </section>
       <section className="w-5/6 my-4 mx-auto">
           <h1 className="text-3xl text-center my-2">Reception</h1>
-          <p><span className="italic">Rick and Morty</span> has been met with critical acclaim since its release, holding an average approval rating of 90% on Rotten Tomatoes for the entire series and The A.V club gave it an "A-".The show received praises from the likes of The New York Times, San Francisco Chronicle and Variety.</p>
+          <p><span className="italic">Rick and Morty</span> has been met with critical acclaim since its release, holding an average approval rating of 90% on Rotten Tomatoes for the entire series and The A.V club gave it an &quot;A-&quot;.The show received praises from the likes of The New York Times, San Francisco Chronicle and Variety.</p>
       </section>
       <section className="w-5/6 my-4 mx-auto">
         <h1 className="text-3xl text-center my-2">Comedic Style</h1>
-        <p>The general gist of the show is the juxtaposition of two conflicting secenarios; an extremely selfish and albeit smart grandfather dragging his grandson along for interdimensional adventures and intercut family drama.Co-creator <a className="font-semibold underline">Dan Harmon</a> had described as being a combination of <a className="underline text-emerald-700">The Simpsons</a> and <a className="underline text-emerald-700">Futurama</a>.</p>
+        <p>The general gist of the show is the juxtaposition of two conflicting secenarios, an extremely selfish and albeit smart grandfather dragging his grandson along for interdimensional adventures and intercut family drama.Co-creator <a className="font-semibold underline">Dan Harmon</a> had described as being a combination of <a className="underline text-emerald-700">The Simpsons</a> and <a className="underline text-emerald-700">Futurama</a>.</p>
         <p>The show has won 10 awards across its airing time and has definitely left an impact in today&apo;s generation in terms of comedy and storytelling.</p>
       </section>
       </>
