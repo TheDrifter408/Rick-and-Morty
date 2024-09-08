@@ -12,7 +12,7 @@ This project uses the [rickandmortyapi.com](https://rickandmortyapi.com/document
 The MotionOne library [motion.dev](https://https://motion.dev/) was used for the sliding in animations. This was preferred over framer motion due to its smaller bundle size.
 
 ### GraphQL Codegen:
-This package was used to generate query types for the data being request and `graphql-request` was used as a plugin to write the queries, `graphql` and `request` them, these two are functions available from graphql-request package. 
+This package was used to generate query types for the data being request and `graphql-request` was used as a plugin to write the queries using `graphql` and `request` them, these two are functions available from graphql-request package. 
 
 
 ## Deployed on Vercel
