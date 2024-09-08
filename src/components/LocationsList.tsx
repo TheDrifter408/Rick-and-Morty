@@ -5,7 +5,7 @@ import { getAllLocations } from "@/types";
 
 export default async function LocationsList({ dimension }:getAllLocations){
 
-    let results:Maybe<Array<Maybe<Location>>> | undefined;
+    let results:Maybe<Maybe<Location>[]>| undefined;
     let query = {
         dimension:dimension
     }
