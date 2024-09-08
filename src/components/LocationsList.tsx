@@ -1,4 +1,4 @@
-import { Location,Maybe } from "@/gql/graphql";
+import { Location,Maybe } from "@/graphql/graphql";
 import LocationComponent from "./Location";
 import { AllLocations } from "@/lib/GetLocations";
 import { getAllLocations } from "@/types";

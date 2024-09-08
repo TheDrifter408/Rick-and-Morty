@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Character } from "@/gql/graphql";
+import { Character } from "@/graphql/graphql";
 import Link from "next/link";
 
 

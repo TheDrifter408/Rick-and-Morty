@@ -6,18 +6,13 @@ const config: CodegenConfig = {
   schema: "https://rickandmortyapi.com/graphql/",
   ignoreNoDocuments:true,
   generates: {
-    './src/graphql/': {
-      preset: 'client',
+    './src/graphql/graphql.ts': {
+      plugins:['typescript','typescript-graphql-request'],
       config: {
-        documentMode: 'string'
+        documentMode: 'string',
+        rawRequest:true
       }
     },
-    './schema.graphql': {
-      plugins: ['schema-ast'],
-      config: {
-        includeDirectives: true,
-      },
-    }
   }
 }
 

@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, FormEvent, ReactElement, Suspense, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FormEvent, ReactElement, useEffect, useRef, useState } from 'react';
 import { useSearchParams, useRouter,usePathname } from 'next/navigation';
 import { animate } from 'motion';
 import Box from '@/components/Box';

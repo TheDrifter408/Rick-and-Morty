@@ -1,4 +1,4 @@
-import {Character, Maybe } from "@/gql/graphql";
+import {Character, Maybe } from "@/graphql/graphql";
 import CharacterComponent from "./Character";
 import { getAllCharacters } from "@/lib/GetCharacters";
 import { AllCharacters } from "@/types";

@@ -1,4 +1,4 @@
-import { Episode, Maybe } from "@/gql/graphql";
+import { Episode, Maybe } from "@/graphql/graphql";
 import EpisodeComponent from "./Episode";
 import { AllEpisodes } from "@/lib/GetEpisodes";
 import { getAllEpisodes } from "@/types";

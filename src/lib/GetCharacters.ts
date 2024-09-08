@@ -1,7 +1,6 @@
 import { Query } from "@/graphql/graphql";
 import { AllCharacters } from "@/types";
 import { request,gql } from 'graphql-request';
-
 const queryDoc = gql`
     query getCharacters($name: String!, $gender: String!, $species: String!, $status: String!,$page:Int!) {
         characters(page:$page,

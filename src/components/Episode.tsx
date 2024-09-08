@@ -1,4 +1,4 @@
-import { Episode } from "@/gql/graphql"
+import { Episode } from "@/graphql/graphql"
 
 export default function EpisodeComponent({name,air_date,characters}:Episode){
     return(

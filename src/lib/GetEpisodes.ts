@@ -1,4 +1,4 @@
-import { request, gql} from "graphql-request";
+import { request,gql } from "graphql-request";
 import { getAllEpisodes } from "@/types";
 import { Query } from "@/graphql/graphql";
 

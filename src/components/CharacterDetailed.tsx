@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Container from "./Box";
-import { Character } from "@/gql/graphql";
+import { Character } from "@/graphql/graphql";
 
 function CharacterDetails({id,name,gender,status,species,origin}:Character){
     console.log(id);

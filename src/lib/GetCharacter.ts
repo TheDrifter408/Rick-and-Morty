@@ -1,7 +1,6 @@
 import { Query } from "@/graphql/graphql";
 import { getCharacter } from "@/types";
-import { request, gql} from "graphql-request";
-
+import { request,gql } from "graphql-request";
 
 const graphdoc = gql`
     query getCharacter($id:ID!) {
