@@ -22,7 +22,7 @@ export default function LocationComponent({name,dimension,residents}:Location){
                             <p className="text-center font-semibold">{resident?.name}</p>
                         </div>
                        )) : <div className="sm:col-span-2 md:col-span-3 xl:col-span-5">
-                                <p className="text-center">How strange,there's nobody here....</p>
+                                <p className="text-center">How strange,there&apos;s nobody here....</p>
                             </div>
                     }
                 </div>
