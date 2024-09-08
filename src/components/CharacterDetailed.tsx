@@ -3,6 +3,7 @@ import Container from "./Box";
 import { Character } from "@/gql/graphql";
 
 function CharacterDetails({id,name,gender,status,species,origin}:Character){
+    console.log(id);
     return(
         <Container styles="-translate-x-full opacity-0">
         <>

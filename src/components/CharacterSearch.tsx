@@ -2,7 +2,7 @@
 import { ChangeEvent, FormEvent, ReactElement, Suspense, useEffect, useRef, useState } from 'react';
 import { useSearchParams, useRouter,usePathname } from 'next/navigation';
 import { animate } from 'motion';
-import Box from './Box';
+import Box from '@/components/Box';
 
 
 export default function CharacterSearch({ children }:{ children:ReactElement }){
@@ -15,7 +15,8 @@ export default function CharacterSearch({ children }:{ children:ReactElement }){
         name:"",
         species:"",
         gender:"",
-        status:""
+        status:"",
+        page:1
     })
 
     function handleInput(e:ChangeEvent<HTMLInputElement>){
@@ -81,6 +82,7 @@ export default function CharacterSearch({ children }:{ children:ReactElement }){
                     <option value="Dead">Dead</option>
                     <option value="unknown">Unknown</option>
                 </select>
+                
                 <button className="border border-slate-400 rounded-xl py-1  xl:col-span-4 hover:bg-black hover:text-white" type="submit" onSubmit={handleSubmit}>
                     Search    
                 </button>  

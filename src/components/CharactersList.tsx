@@ -4,20 +4,19 @@ import { getAllCharacters } from "@/lib/GetCharacters";
 import { AllCharacters } from "@/types";
 
 
-export default async function CharactersList({name,species,gender,status}:AllCharacters){
-        let results : Maybe<Array<Maybe<Character>>> | undefined;
+export default async function CharactersList({name,species,gender,status, page}:AllCharacters){
         const query = {
         name: name,
         species: species,
         gender: gender,
         status: status,
-        page:1
+        page:page
         }
-        results = await getAllCharacters(query);
+        const { characters, info } = await getAllCharacters(query);
     return(
         <>
         { 
-            results?.map((char:Maybe<Character>) => (
+            characters?.map((char:Maybe<Character>) => (
                 <CharacterComponent  key={char?.id} id={char?.id} name={char?.name} status={char?.status} />
             )) 
         }

@@ -15,12 +15,13 @@ export default async function Page({searchParams}:{
     gender: typeof searchParams?.gender === 'string' ? searchParams?.gender: "",
     species: typeof searchParams?.species === 'string' ? searchParams?.species: "",
     status: typeof searchParams?.status === 'string' ? searchParams?.status: "",
+    page: typeof searchParams?.page === 'string' ? searchParams?.page: ""
   }
   return(
       <>
         <CharacterSearch>
           <Suspense fallback={<Loading type="Characters" />}>
-          <CharactersList name={query.name} gender={query.gender} species={query.species} status={query.status} />
+          <CharactersList name={query.name} gender={query.gender} species={query.species} status={query.status} page={Number(query.page)} />
           </Suspense>
         </CharacterSearch>
       </>

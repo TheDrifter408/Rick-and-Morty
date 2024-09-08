@@ -1,4 +1,3 @@
-import { graphql } from "@/gql/gql";
 import { Query } from "@/gql/graphql";
 import { AllCharacters } from "@/types";
 import { request,gql } from 'graphql-request';
@@ -8,6 +7,10 @@ const queryDoc = gql`
         characters(page:$page,
     filter: {name: $name, gender: $gender, species: $species, status: $status}
   ) {
+            info {
+                count
+                pages
+            },
             results {
                 id
                 name
@@ -22,5 +25,9 @@ const queryDoc = gql`
 
 export async function getAllCharacters(queryParams:AllCharacters){
     const { characters } = await request<Query>('https://rickandmortyapi.com/graphql',queryDoc,queryParams);
-    return characters?.results;    
+    const result = {
+        characters: characters?.results,
+        info:characters?.info
+    }
+    return result;
 }
